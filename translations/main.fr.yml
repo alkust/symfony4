@@ -1,0 +1,6 @@
+
+main:
+  index:
+    title : Accueil
+    welcome : Page de Accueil
+    bienvenue : Bienvenue sur Mon Page de Accueil , %name%!

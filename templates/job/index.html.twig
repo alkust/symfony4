@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+
+      <ul  class="list-group">
+        <li class="list-group-item list-group-item-action"><a href="{{path('app_main_index')}}">Accueil</a></li>
+          <li class="list-group-item list-group-item-action"><a  href="{{ path('app_mycontro_index')}}">Employer</a></li>
+            <li class="list-group-item list-group-item-action"><a  href="{{ path('app_worker_index')}}">Worker</a></li>
+            <li class="list-group-item list-group-item-action"><a  href="#">About-us</a></li>
+              <li class="list-group-item list-group-item-action"><a  href="#">Contact</a></li>
+      </ul>
+  <table class="table" border="solid 1px green">
+    <tr>
+      <th>Title</th>
+      <th>Summary</th>
+      <th>Wage</th>
+      <th>Employés concernés</th>
+    </tr>
+
+      {% for job in Jobs  %}
+    <tr>
+      <td>{{ job.Title}}</td>
+      <td>{{ job.Summary}}</td>
+      <td>{{ job.Wage }}</td>
+      <td>
+        {% for worker in job.workers %}
+        {{ worker.lastName }} {{worker.firstName}} {{loop.last ? '' : ','}}
+        {% endfor %}
+        </td>
+    </tr>
+      {% endfor %}
+  </table>
+    <br>
+  </div>
+{% endblock %}

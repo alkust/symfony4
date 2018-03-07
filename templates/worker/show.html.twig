@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block body %}
+<style>
+    body {
+
+      font-family: monospace;
+    }
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ controller_name }}! ✅</h1>
+
+    <ul>
+      <li><a href="{{path('app_main_index')}}">Accueil</a></li>
+        <li><a  href="{{ path('app_mycontro_index')}}">Employer</a></li>
+          <li><a  href="{{ path('app_worker_index')}}">Worker</a></li>
+          <li><a  href="#">About-us</a></li>
+            <li><a  href="#">Contact</a></li>
+    </ul>
+
+    <table border="solid 1px green">
+      <tr>
+
+        <th>LastName </th>
+        <th>FirstName</th>
+        <th>jobTitle</th>
+        <th>workertime</th>
+        <th>wage</th>
+        <th>date</th>
+
+      </tr>
+      {% for workers in worker  %}
+      <tr>
+
+      <td>{{ workers.lastName }}</td>
+      <td> {{ workers.firstName }}</td>
+      <td> {{ workers.jobTitle }}</td>
+      <td> {{ workers.workertime }}</td>
+      <td> {{ workers.wage }}</td>
+      <td> {{ workers.date | date("m/d/Y") }}</td>
+      <td> <a href="{{path('app_worker_edit' , { id: workers.id } ) }}" > Editer </a> </td>
+      <td> <a href="{{path('app_worker_show' , { id: workers.id } ) }}" > Show Details </a> </td>
+    </tr>
+
+
+
+    {% endfor %}
+    </table>
+    <br>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{'main.index.title' | trans}}{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<style media="screen">
+a {
+  text-decoration : none
+}
+
+</style>
+  {% endblock  %}
+
+
+{% block body %}
+<h1>{{ 'main.index.welcome' | trans({} , 'main') }}</h1>
+<h1>{{ 'main.index.bienvenue' | trans({'%name%': name} , 'main') }}</h1>
+
+<ul>
+  <li><a href="{{path('app_main_index')}}">Accueil</a></li>
+    <li><a  href="{{ path('app_mycontro_index')}}">Employer</a></li>
+      <li><a  href="{{ path('app_worker_index')}}">Worker</a></li>
+      <li><a  href="#">About-us</a></li>
+        <li><a  href="#">Contact</a></li>
+</ul>
+
+
+
+{% endblock %}

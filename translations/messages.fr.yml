@@ -1,0 +1,18 @@
+base:
+  title: Accueil
+
+
+myControl :
+      Index :
+        welcome: 'All our Employer'
+
+
+worker:
+  field:
+    lastName: Nom
+    firstName : Prénom
+    job : Job
+
+    workertime : WorkerTime
+    wage : Wage
+    date : Date
