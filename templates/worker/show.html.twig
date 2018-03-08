@@ -30,7 +30,6 @@
         <th>FirstName</th>
         <th>jobTitle</th>
         <th>workertime</th>
-        <th>wage</th>
         <th>date</th>
 
       </tr>
@@ -39,9 +38,8 @@
 
       <td>{{ workers.lastName }}</td>
       <td> {{ workers.firstName }}</td>
-      <td> {{ workers.jobTitle }}</td>
+      <td> {{ workers.job }}</td>
       <td> {{ workers.workertime }}</td>
-      <td> {{ workers.wage }}</td>
       <td> {{ workers.date | date("m/d/Y") }}</td>
       <td> <a href="{{path('app_worker_edit' , { id: workers.id } ) }}" > Editer </a> </td>
       <td> <a href="{{path('app_worker_show' , { id: workers.id } ) }}" > Show Details </a> </td>

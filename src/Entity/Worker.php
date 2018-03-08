@@ -75,13 +75,13 @@ class Worker
         *@param Job $job
         *@return Worker
         */
-        public function SetJob(Job $job):Worker
+        public function Setjob(Job $job):Worker
         {
           $this->job = $job;
           return $this;
         }
 
-        public function getJob(): ? Job
+        public function getjob(): ? Job
         {
           return $this->job;
         }

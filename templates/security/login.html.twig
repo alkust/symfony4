@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+{% if error is not empty %}
+<p class="flash flash--error">{{ error.message }}</p>
+{% endif %}
+
+<form action="{{ path('app_security_logincheck') }}" method="POST">
+    <label for="[login]username">Username</label>
+    <input class="form-control" type="text" name="username" id="username">
+
+    <label for="[login]password">Password</label>
+    <input class="form-control" type="password" name="password" id="password">
+
+    <button type="submit">Log In</button>
+</form>
+{% endblock %}

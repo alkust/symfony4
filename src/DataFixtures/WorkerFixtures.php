@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Worker;
+
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -15,8 +16,8 @@ class WorkerFixtures extends Fixture
          ->setlastName('Gruh')
          ->setfirstName('Jean')
          ->setjob('Facteur-CEB')
-         ->setworkertime('23.5')
-         ->setwage ('14.22');
+         ->setworkertime('23.5');
+
 
       $manager->persist($worker);
         $manager->flush();
