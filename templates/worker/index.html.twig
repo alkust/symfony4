@@ -40,12 +40,19 @@
       <td>{{ workers.lastName }}</td>
         <td> {{ workers.firstName }}</td>
           <td> {{ workers.job ? workers.job.title:''  }}</td>
+          <td class="table_cell">
+            {% if app.user.worker ? app.user.worker == worker %}
+            <a href="{{path('app_worker_edit' , { id: workers.id } ) }}" > Editer </a>
+            {% endif %}
+          </td>
           <td> {{  workers.job  ? workers.job.Summary  }}</td>
           <td> {{  workers.job  ? workers.job.Wage  }}</td>
-      <td> <a href="{{path('app_worker_edit' , { id: workers.id } ) }}" > Editer </a> </td>
       <td> <a href="{{path('app_worker_show' , { id: workers.id } ) }}" > Show Details </a> </td>
 
-      <td> {{ form_start(form , {
+      <td>
+        {% if is_granted('ROLE_MANAGER')%}
+
+      {{ form_start(form , {
         att : {class:'worker__form'},
         action : path('app_worker_delete' ,{id: workers.id} ),
                 })
@@ -53,6 +60,7 @@
         <input class:"worker__form"
           type="submit" value="submit" />
           {{form_end(form)}}
+          {% endif %}
     </td>
   </tr>
   {% endfor %}

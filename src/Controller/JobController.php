@@ -6,9 +6,9 @@ use App\Entity\Job;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 class JobController extends Controller
 {
+
     /**
      *@Route("/job")
      */

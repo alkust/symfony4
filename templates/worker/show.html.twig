@@ -38,7 +38,7 @@
 
       <td>{{ workers.lastName }}</td>
       <td> {{ workers.firstName }}</td>
-      <td> {{ workers.job }}</td>
+      <td> {{ workers.job ? workers.job.title }}</td>
       <td> {{ workers.workertime }}</td>
       <td> {{ workers.date | date("m/d/Y") }}</td>
       <td> <a href="{{path('app_worker_edit' , { id: workers.id } ) }}" > Editer </a> </td>

@@ -13,11 +13,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Doctrine\ORM\EntityManagerInterface;
 
 
+
 /**
 *@Route("/worker")
 */
 class WorkerController extends Controller
 {
+
     /**
      * @Route("/")
      */

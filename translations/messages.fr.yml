@@ -2,6 +2,10 @@ base:
   title: Accueil
 
 
+main:
+      index :
+        welcome: 'hello every one'
+
 myControl :
       Index :
         welcome: 'All our Employer'

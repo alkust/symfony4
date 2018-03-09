@@ -16,6 +16,8 @@ a {
 {% block body %}
 <h1>{{ 'main.index.welcome' | trans({} , 'main') }}</h1>
 <h1>{{ 'main.index.bienvenue' | trans({'%name%': name} , 'main') }}</h1>
+<h1>{{greeting}}</h1>
+
 
 <ul>
   <li><a href="{{path('app_main_index')}}">Accueil</a></li>

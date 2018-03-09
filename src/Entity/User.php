@@ -110,8 +110,24 @@ class User implements UserInterface
         return $this;
     }
 
+
+    /**
+    *@ORM\OneToOne(targetEntity="Worker")
+    */
+    private $worker;
+
+    public function setWorker($worker)
+    {
+      $this->worker = $worker;
+      return $this;
+    }
+
+    public function getWorker()
+    {
+      return $this->worker;
+    }
+
     public function eraseCredentials()
     {}
 
 }
- ?>

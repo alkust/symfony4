@@ -10,18 +10,16 @@ class JobFix extends Fixture
 {
     public function load(ObjectManager $manager)
     {
-      $titles = ['Cuisinier' , 'Marchand' , 'Aventurier' , 'Clown' , 'Voleur'];
-
-      foreach($titles as $title){
-        $manager->persist(
-          (new Job())
-          ->setTitle($title)
-          ->setSummary('Un Super boulot')
-          ->setWage(random_int(8 ,88). '.' .random_int(0 ,9) . '0')
-        );
-
+        $titles=['Cuisinier','Marchand','Balayeur','Comptable','idéfini'];
+    for($i=0;$i < count($titles);$i++)
+      {
+        $job = (new Job())
+        ->setTitle($titles[array_rand($titles)])
+        ->setSummary('Payé trop cher')
+        ->setWage(random_int(8,80).'.'.random_int(0,70));
+          $manager->persist($job);
+          $this->addReference("job-$i", $job);
       }
-
-        $manager->flush();
-    }
+      $manager->flush();
+  }
 }

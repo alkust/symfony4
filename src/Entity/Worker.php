@@ -2,7 +2,7 @@
 
 namespace App\Entity;
 
-
+use\App\Entity\Job;
 use Doctrine\ORM\Mapping as ORM;
 
 /**

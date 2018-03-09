@@ -7,7 +7,9 @@ security:
                 class: App\Entity\User
                 property: username
     encoders:
-         App\Entity\User: plaintext
+         App\Entity\User:
+           algorithm: bcrypt
+           cost: 12
 
     firewalls:
         dev:
@@ -16,12 +18,14 @@ security:
         login:
             pattern: ^/login$
             security: false
+
         main:
             provider: in_database
             form_login:
 
                 username_parameter: username
                 password_parameter: password
+
             logout: ~
 
     # Easy way to control access for large sections of your site
@@ -29,4 +33,6 @@ security:
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login_check, requires_channel: https, roles: IS_AUTHENTICATED_FULLY}
-        - { path: ^/, roles: IS_AUTHENTICATED_REMEMBERED}
+        - { path: ^/worker/(create|delete), roles: 'ROLE_MANAGER'}
+      # - { path: ^/worker/edit, roles: 'ROLE_MANAGER'}
+        - { path: ^/, roles: IS_AUTHENTICATED_REMEMBERED} #catch all
